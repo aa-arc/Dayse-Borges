@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão Digital - Dayse Borges</title>
+    <!-- Fontes Minimalistas e Acolhedoras -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --marrom-apagado: #84592b;
+            --laranja-pastel: #e8d1a7;
+            --marrom-profundo: #442d1c;
+            --marrom-cinza-oliva: #676127; /* Cor verde oliva do primeiro botão */
+            --branco-creme: #fdfbf7;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--laranja-pastel) 0%, #d9c196 100%);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: var(--branco-creme);
+            width: 100%;
+            max-width: 350px;
+            padding: 45px 25px;
+            border-radius: 50px;
+            box-shadow: 0 15px 35px rgba(68, 45, 28, 0.12);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .header h1 {
+            color: var(--marrom-profundo);
+            font-weight: 400;
+            font-size: 1.7rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .header .subtitle {
+            color: var(--marrom-apagado);
+            font-weight: 400;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header .crp {
+            color: var(--marrom-cinza-oliva);
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+
+        .divider {
+            width: 30px;
+            height: 1px;
+            background-color: var(--laranja-pastel);
+            margin: 25px auto;
+        }
+
+        .description {
+            color: var(--marrom-profundo);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-contato {
+            background-color: var(--marrom-cinza-oliva);
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--marrom-apagado);
+            color: var(--marrom-apagado);
+        }
+
+        /* Cor do ícone de folha ajustada para o verde oliva */
+        .btn-outline i {
+            color: var(--marrom-cinza-oliva);
+        }
+
+        .btn-clinica {
+            background-color: var(--marrom-profundo);
+            color: var(--laranja-pastel);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(68, 45, 28, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--branco-creme);
+            padding: 40px 30px;
+            border-radius: 35px;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--marrom-apagado);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <h1>Dayse Borges</h1>
+            <div class="subtitle">Psicóloga</div>
+            <div class="crp">CRP: 03/25699</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="description">
+            Terapia on-line e presencial<br>em Irecê/Ba
+        </p>
+
+        <div class="links-container">
+            <!-- Botão 1 -->
+            <a href="https://wa.me/5574999502664?text=Oi.%20Gostaria%20de%20agendar%20o%20início%20das%20sessões%20de%20terapia%20com%20você.%20Pode%20me%20passar%20informações%20sobre%20como%20funciona?" class="btn btn-contato">
+                <i class="fa-brands fa-whatsapp"></i> Agendar via WhatsApp
+            </a>
+
+            <!-- Botão 2 -->
+            <a href="https://www.instagram.com/daysespsicologa/" target="_blank" class="btn btn-contato">
+                <i class="fa-brands fa-instagram"></i> Instagram Profissional
+            </a>
+
+            <!-- Botão 3 (Minha Abordagem com a folhinha verde oliva) -->
+            <button class="btn btn-outline" onclick="openM()">
+                <i class="fa-solid fa-leaf"></i> Minha Abordagem
+            </button>
+            
+            <!-- Botão 4 -->
+            <a href="https://wa.me/5574999502664?text=Olá,%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20com%20a%20psicóloga%20Dayse%20Borges.%20Como%20posso%20agendar%20um%20horário?" class="btn btn-clinica">
+                <i class="fa-solid fa-location-dot"></i> Consulta Presencial
+            </a>
+        </div>
+    </div>
+
+    <div id="mAbordagem" class="modal" onclick="closeM(event)">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('mAbordagem').style.display='none'">&times;</span>
+            <h3 style="color: var(--marrom-profundo); font-weight: 500; margin-top: 0; font-family: 'Montserrat';">Minha Abordagem</h3>
+            <div style="color: var(--marrom-profundo); font-family: 'Quicksand'; line-height: 1.8; margin-top: 15px;">
+                <p>...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openM() { document.getElementById('mAbordagem').style.display = 'flex'; }
+        function closeM(e) { if(e.target.id === 'mAbordagem') e.target.style.display = 'none'; }
+    </script>
+</body>
+</html>
