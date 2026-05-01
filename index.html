@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartão Digital - Dayse Borges</title>
-    <!-- Fontes Minimalistas e Acolhedoras -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -13,14 +12,12 @@
             --marrom-apagado: #84592b;
             --laranja-pastel: #e8d1a7;
             --marrom-profundo: #442d1c;
-            --marrom-cinza-oliva: #676127; /* Cor verde oliva do primeiro botão */
+            --marrom-cinza-oliva: #676127;
             --branco-creme: #fdfbf7;
+            --verde-disponivel: #a2d2bb;
         }
 
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             background: linear-gradient(180deg, var(--laranja-pastel) 0%, #d9c196 100%);
@@ -37,32 +34,67 @@
             background-color: var(--branco-creme);
             width: 100%;
             max-width: 350px;
-            padding: 45px 25px;
+            padding: 40px 25px;
             border-radius: 50px;
             box-shadow: 0 15px 35px rgba(68, 45, 28, 0.12);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.7);
         }
 
+        /* Foto de Perfil */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Status Gentil */
+        .status-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: var(--marrom-apagado);
+        }
+        #status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+        .pulse { animation: pulse-green 2s infinite; }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(162, 210, 187, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(162, 210, 187, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(162, 210, 187, 0); }
+        }
+
         .header h1 {
             color: var(--marrom-profundo);
             font-weight: 400;
-            font-size: 1.7rem;
-            margin-bottom: 5px;
+            font-size: 1.6rem;
+            margin: 0;
             letter-spacing: 1px;
         }
 
         .header .subtitle {
             color: var(--marrom-apagado);
             font-weight: 400;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-top: 5px;
         }
 
         .header .crp {
             color: var(--marrom-cinza-oliva);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             margin-top: 5px;
         }
 
@@ -70,15 +102,7 @@
             width: 30px;
             height: 1px;
             background-color: var(--laranja-pastel);
-            margin: 25px auto;
-        }
-
-        .description {
-            color: var(--marrom-profundo);
-            font-family: 'Quicksand', sans-serif;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            line-height: 1.4;
+            margin: 20px auto;
         }
 
         .links-container {
@@ -102,31 +126,12 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        .btn-contato {
-            background-color: var(--marrom-cinza-oliva);
-            color: white;
-        }
+        .btn-contato { background-color: var(--marrom-cinza-oliva); color: white; }
+        .btn-outline { background-color: transparent; border: 1px solid var(--marrom-apagado); color: var(--marrom-apagado); }
+        .btn-outline i { color: var(--marrom-cinza-oliva); }
+        .btn-clinica { background-color: var(--marrom-profundo); color: var(--laranja-pastel); }
 
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--marrom-apagado);
-            color: var(--marrom-apagado);
-        }
-
-        /* Cor do ícone de folha ajustada para o verde oliva */
-        .btn-outline i {
-            color: var(--marrom-cinza-oliva);
-        }
-
-        .btn-clinica {
-            background-color: var(--marrom-profundo);
-            color: var(--laranja-pastel);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
-        }
+        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
         .modal {
             display: none;
@@ -168,6 +173,13 @@
 <body>
 
     <div class="card">
+        <img src="perfildayse.webp.jpg" alt="Dra. Dayse Borges" class="profile-img">
+        
+        <div class="status-container">
+            <span id="status-dot"></span>
+            <span id="status-text">Verificando...</span>
+        </div>
+
         <div class="header">
             <h1>Dayse Borges</h1>
             <div class="subtitle">Psicóloga</div>
@@ -176,39 +188,38 @@
 
         <div class="divider"></div>
 
-        <p class="description">
-            Terapia on-line e presencial<br>em Irecê/Ba
-        </p>
-
         <div class="links-container">
-            <!-- Botão 1 -->
-            <a href="https://wa.me/5574999502664?text=Oi.%20Gostaria%20de%20agendar%20o%20início%20das%20sessões%20de%20terapia%20com%20você.%20Pode%20me%20passar%20informações%20sobre%20como%20funciona?" class="btn btn-contato">
-                <i class="fa-brands fa-whatsapp"></i> Agendar via WhatsApp
+            <!-- Botão 1: Terapia Online -->
+            <a href="https://wa.me/5574999502664?text=Oi,%20tenho%20interesse%20em%20agendar%20a%20terapia%20on-line.%20Poderia%20me%20passar%20mais%20informações?" class="btn btn-contato">
+                <i class="fa-brands fa-whatsapp"></i> Terapia Online
             </a>
 
-            <!-- Botão 2 -->
+            <!-- Botão 2: Instagram -->
             <a href="https://www.instagram.com/daysespsicologa/" target="_blank" class="btn btn-contato">
                 <i class="fa-brands fa-instagram"></i> Instagram Profissional
             </a>
 
-            <!-- Botão 3 (Minha Abordagem com a folhinha verde oliva) -->
+            <!-- Botão 3: Sobre a terapia -->
             <button class="btn btn-outline" onclick="openM()">
-                <i class="fa-solid fa-leaf"></i> Minha Abordagem
+                <i class="fa-solid fa-leaf"></i> Sobre a terapia
             </button>
             
-            <!-- Botão 4 -->
-            <a href="https://wa.me/5574999502664?text=Olá,%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20com%20a%20psicóloga%20Dayse%20Borges.%20Como%20posso%20agendar%20um%20horário?" class="btn btn-clinica">
+            <!-- Botão 4: Consulta Presencial -->
+            <a href="https://wa.me/5574999502664?text=Oi,%20tenho%20interesse%20em%20agendar%20a%20terapia%20presencial.%20Poderia%20me%20passar%20mais%20informações?" class="btn btn-clinica">
                 <i class="fa-solid fa-location-dot"></i> Consulta Presencial
             </a>
         </div>
     </div>
 
+    <!-- Modal "Sobre a terapia" -->
     <div id="mAbordagem" class="modal" onclick="closeM(event)">
         <div class="modal-content">
             <span class="close" onclick="document.getElementById('mAbordagem').style.display='none'">&times;</span>
-            <h3 style="color: var(--marrom-profundo); font-weight: 500; margin-top: 0; font-family: 'Montserrat';">Minha Abordagem</h3>
-            <div style="color: var(--marrom-profundo); font-family: 'Quicksand'; line-height: 1.8; margin-top: 15px;">
-                <p>...</p>
+            <h3 style="color: var(--marrom-profundo); font-weight: 500; margin: 0; font-family: 'Montserrat';">Sobre a terapia</h3>
+            <div style="color: var(--marrom-profundo); font-family: 'Quicksand'; line-height: 1.6; margin-top: 20px; text-align: left; font-size: 0.95rem;">
+                <p>A terapia é um espaço seguro, no qual você pode se sentir a vontade para ser quem é, e juntas construiremos caminhos para lidar com o que você sente.</p>
+                <p>Realizo atendimentos <strong>on-line e presencial em Irecê/Ba</strong>, através da Terapia Cognitivo-Comportamental, com adultos inseguros, ansiosos, estressados e que se cobram muito.</p>
+                <p>Entre em contato para agendamento e para tirar dúvidas!</p>
             </div>
         </div>
     </div>
@@ -216,6 +227,24 @@
     <script>
         function openM() { document.getElementById('mAbordagem').style.display = 'flex'; }
         function closeM(e) { if(e.target.id === 'mAbordagem') e.target.style.display = 'none'; }
+
+        function checkStatus() {
+            const now = new Date();
+            const hour = now.getHours();
+            const statusDot = document.getElementById('status-dot');
+            const statusText = document.getElementById('status-text');
+
+            if (hour >= 9 && hour < 20) {
+                statusText.innerText = "Disponível para agendamento";
+                statusDot.style.backgroundColor = "var(--verde-disponivel)";
+                statusDot.classList.add('pulse');
+            } else {
+                statusText.innerText = "Consultório fechado no momento";
+                statusDot.style.backgroundColor = "#d1d1d1";
+                statusDot.classList.remove('pulse');
+            }
+        }
+        checkStatus();
     </script>
 </body>
 </html>
