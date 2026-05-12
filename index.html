@@ -23,6 +23,7 @@
             background: linear-gradient(180deg, var(--laranja-pastel) 0%, #d9c196 100%);
             font-family: 'Montserrat', sans-serif;
             display: flex;
+            flex-direction: column; /* Alinha cartão e footer em coluna */
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -189,29 +190,24 @@
         <div class="divider"></div>
 
         <div class="links-container">
-            <!-- Botão 1: Terapia Online -->
             <a href="https://wa.me/5574999502664?text=Oi,%20tenho%20interesse%20em%20agendar%20a%20terapia%20on-line.%20Poderia%20me%20passar%20mais%20informações?" class="btn btn-contato">
                 <i class="fa-brands fa-whatsapp"></i> Terapia Online
             </a>
 
-            <!-- Botão 2: Instagram -->
             <a href="https://www.instagram.com/daysespsicologa/" target="_blank" class="btn btn-contato">
                 <i class="fa-brands fa-instagram"></i> Instagram Profissional
             </a>
 
-            <!-- Botão 3: Sobre a terapia -->
             <button class="btn btn-outline" onclick="openM()">
                 <i class="fa-solid fa-leaf"></i> Sobre a terapia
             </button>
             
-            <!-- Botão 4: Consulta Presencial -->
             <a href="https://wa.me/5574999502664?text=Oi,%20tenho%20interesse%20em%20agendar%20a%20terapia%20presencial.%20Poderia%20me%20passar%20mais%20informações?" class="btn btn-clinica">
                 <i class="fa-solid fa-location-dot"></i> Consulta Presencial
             </a>
         </div>
     </div>
 
-    <!-- Modal "Sobre a terapia" -->
     <div id="mAbordagem" class="modal" onclick="closeM(event)">
         <div class="modal-content">
             <span class="close" onclick="document.getElementById('mAbordagem').style.display='none'">&times;</span>
@@ -245,9 +241,9 @@
             }
         }
         checkStatus();
-</script>
+    </script>
 
-    <footer style="text-align: center; padding: 30px 0 10px; font-family: 'Montserrat', sans-serif;">
+    <footer style="width: 100%; max-width: 350px; text-align: center; padding: 20px 0; font-family: 'Montserrat', sans-serif;">
         <p style="font-size: 10px; letter-spacing: 2px; color: var(--marrom-apagado); margin: 0; opacity: 0.6;">
             design & code by <a href="https://github.com/aa-arc" target="_blank" style="text-decoration: none; color: inherit; font-weight: bold;">a.arc</a>
         </p>
