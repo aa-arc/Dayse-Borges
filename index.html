@@ -22,10 +22,7 @@
         body {
             background: linear-gradient(180deg, var(--laranja-pastel) 0%, #d9c196 100%);
             font-family: 'Montserrat', sans-serif;
-            display: flex;
-            flex-direction: column; /* Alinha cartão e footer em coluna */
-            justify-content: center;
-            align-items: center;
+            display: block; /* Mudado de flex para block para o footer não entortar */
             min-height: 100vh;
             margin: 0;
             padding: 20px;
@@ -40,6 +37,7 @@
             box-shadow: 0 15px 35px rgba(68, 45, 28, 0.12);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.7);
+            margin: 0 auto; /* Centraliza o card */
         }
 
         /* Foto de Perfil */
@@ -243,9 +241,9 @@
         checkStatus();
     </script>
 
-    <footer style="width: 100%; max-width: 350px; text-align: center; padding: 20px 0; font-family: 'Montserrat', sans-serif;">
+    <footer style="width: 100%; text-align: center; padding: 30px 0; font-family: 'Montserrat', sans-serif;">
         <p style="font-size: 10px; letter-spacing: 2px; color: var(--marrom-apagado); margin: 0; opacity: 0.6;">
-            design & code by <a href="https://github.com/aa-arc" target="_blank" style="text-decoration: none; color: inherit; font-weight: bold;">a.arc</a>
+            design & code by a.arc
         </p>
     </footer>
 
